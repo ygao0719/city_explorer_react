@@ -1,11 +1,10 @@
 
 
 
-Number and name of feature: ________________________________
+Number and name of feature: _scaffold 
+Estimate of time needed to complete: _2 hours
 
-Estimate of time needed to complete: _____
-
-Start time: _____
+Start time: _900__
 
 Finish time: _____
 
