@@ -8,24 +8,22 @@ class App extends React.Component {
     super(props);
     this.state = { 
       location: '',
-      
+      formatted_query: '',
+      latitude:'',
+      longitude:'',
     };
   }
 
-  // handleForm = e => {
-  //   let location = e.target.value;
-  //   this.setState({location});
-  // }
   handleForm = (location) => {
     this.setState({location});
-    console.log(location);
+
   }
 
   render(){
     return (
     <>
       <Header />
-      <SearchForm handlerLocation={this.handleForm}/>
+      <SearchForm handlerLocation={this.handleForm} renderFormatted_query={this.state.formatted_query}/>
       <Map searchQuery = {this.state.location}/>
       {/* <SearchResults /> */}
     </>

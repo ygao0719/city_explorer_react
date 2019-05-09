@@ -1,4 +1,5 @@
 import React from 'react';
+import superagent from 'superagent';
 
 class SearchForm extends React.Component{
   constructor(props){
@@ -7,7 +8,7 @@ class SearchForm extends React.Component{
       location: '',
     };
   }
-  handleData = e => {
+  handleData = async e => {
     let location = e.target.value;
     this.setState({location});
   }
@@ -16,9 +17,13 @@ class SearchForm extends React.Component{
     let loca = this.state.location;
     this.props.handlerLocation(loca);
 
-    let data = await superagent.get('https://city-explorer-backend.herokuapp.com/location');
-    let 
-
+    let data = await superagent.get('https://calm-taiga-81023.herokuapp.com/location');
+    // let formatted_query = data.body.formatted_query;
+    // this.props.renderFormatted_query(formatted_query);
+    // let latitude = data.body.latitude;
+    // this.props.renderLatitude(latitude);
+    // let longitude = data.body.longutude;
+    // this.props.renderLongitude(longitude);
 
   }
 

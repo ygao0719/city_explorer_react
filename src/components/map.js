@@ -1,10 +1,9 @@
 import React from 'react';
-import superagent from 'superagent';
 
 class Map extends React.Component{
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
   render(){
     return(
       <>
