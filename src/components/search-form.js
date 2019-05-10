@@ -8,15 +8,15 @@ class SearchForm extends React.Component{
       location: '',
     };
   }
+
   handleData = async e => {
     let location = e.target.value;
     this.setState({location});
   }
+
   renderFunction = async e => {
     e.preventDefault();
-    // let loca = this.state.location;
-    // this.props.handlerLocation(loca);
-
+    //get location
     let data = await superagent.get(`https://calm-taiga-81023.herokuapp.com/location/?data=${this.state.location}`);
 
     let locationData = {
@@ -26,6 +26,14 @@ class SearchForm extends React.Component{
       longitude:data.body.longitude,
     }
     this.props.handleForm(locationData);
+    //get weather
+    let responseWeather = await superagent.get(`https://calm-taiga-81023.herokuapp.com/weather`,{method:'GET', data:locationData});
+    this.props.weatherHandler(responseWeather.body);
+
+    //get yelp
+    let responseYelp = await superagent.get(`https://calm-taiga-81023.herokuapp.com/yelp`,{method:'GET', data:locationData});
+    this.props.yelpHandler(responseYelp.body);
+    //get 
   }
 
   render(){
