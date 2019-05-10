@@ -14,23 +14,24 @@ class SearchForm extends React.Component{
   }
   renderFunction = async e => {
     e.preventDefault();
-    let loca = this.state.location;
-    this.props.handlerLocation(loca);
+    // let loca = this.state.location;
+    // this.props.handlerLocation(loca);
 
-    let data = await superagent.get('https://calm-taiga-81023.herokuapp.com/location');
-    // let formatted_query = data.body.formatted_query;
-    // this.props.renderFormatted_query(formatted_query);
-    // let latitude = data.body.latitude;
-    // this.props.renderLatitude(latitude);
-    // let longitude = data.body.longutude;
-    // this.props.renderLongitude(longitude);
+    let data = await superagent.get(`https://calm-taiga-81023.herokuapp.com/location/?data=${this.state.location}`);
 
+    let locationData = {
+      search_query: data.body.search_query,
+      formatted_query: data.body.formatted_query,
+      latitude:data.body.latitude,
+      longitude:data.body.longitude,
+    }
+    this.props.handleForm(locationData);
   }
 
   render(){
     return(
       <form >
-        <label for="search">Search for a location</label>
+        <label>Search for a location</label>
         <input onChange = {this.handleData} placeholder="Enter a location here"></input>
         <button onClick = {this.renderFunction}>Explore!</button>
       </form>    
