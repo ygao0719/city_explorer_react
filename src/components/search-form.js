@@ -33,7 +33,13 @@ class SearchForm extends React.Component{
     //get yelp
     let responseYelp = await superagent.get(`https://calm-taiga-81023.herokuapp.com/yelp`,{method:'GET', data:locationData});
     this.props.yelpHandler(responseYelp.body);
-    //get 
+    //get event
+    let responseEvent = await superagent.get(`https://calm-taiga-81023.herokuapp.com/events`,{method:'GET', data:locationData});
+    this.props.eventHandler(responseEvent.body);
+    //get movies
+    let responseMovie = await superagent.get(`https://calm-taiga-81023.herokuapp.com/movies`,{method:'GET', data:locationData});
+    this.props.movieHandler(responseMovie.body);
+
   }
 
   render(){
