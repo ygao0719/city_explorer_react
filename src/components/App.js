@@ -16,6 +16,8 @@ class App extends React.Component {
       },
       DarkSky:[],
       Yelp:[],
+      Event:[],
+      Movie:[],
     };
   }
 
@@ -30,13 +32,21 @@ class App extends React.Component {
   yelpHandler = (Yelp) => {
     this.setState({Yelp},() => console.log(this.state.Yelp));
   }
+
+  eventHandler = (Event) => {
+    this.setState({Event},() => console.log(this.state.Event));
+  }
+  movieHandler = (Movie) => {
+    this.setState({Movie},() => console.log(this.state.Movie));
+  }
+
   render(){
     return (
     <>
       <Header />
-      <SearchForm handleForm={this.handleForm} weatherHandler={this.weatherHandler} yelpHandler={this.yelpHandler} />
+      <SearchForm handleForm={this.handleForm} weatherHandler={this.weatherHandler} yelpHandler={this.yelpHandler}  eventHandler={this.eventHandler} movieHandler={this.movieHandler}/>
       <Map city = {this.state.location.search_query}/>
-      <SearchResults weatherList = {this.state.DarkSky} yelpList = {this.state.Yelp}/>
+      <SearchResults weatherList = {this.state.DarkSky} yelpList = {this.state.Yelp} eventList = {this.state.Event} movieList = {this.state.Movie}/>
     </>
     );
   }
