@@ -9,7 +9,9 @@ class SearchResults extends React.Component{
 
   render(){
     return(
-      <React.Fragment>
+      <div className="column-container">
+          <section>
+          <h3>Results from the Dark Sky API</h3>
            <ul>
             {this.props.weatherList.map((key, idx) => {
             return (
@@ -19,7 +21,10 @@ class SearchResults extends React.Component{
             );
             })}
           </ul>
+          </section>
 
+          <section>
+          <h3>Results from the Yelp API</h3>
           <ul>
             {this.props.yelpList.map((key,idx) => {
               return(
@@ -31,7 +36,10 @@ class SearchResults extends React.Component{
               );
             })}
           </ul>
+          </section>
 
+          <section>
+          <h3>Results from the Eventbrite API</h3>
           <ul>
             {this.props.eventList.map((key,idx) => {
               return(
@@ -43,7 +51,10 @@ class SearchResults extends React.Component{
               );
             })}
             </ul>
+            </section>
 
+            <section>
+            <h3>Results from The Movie DB API</h3>
             <ul>
             {this.props.movieList.map((key,idx) => {
               return(
@@ -55,8 +66,8 @@ class SearchResults extends React.Component{
               );
             })}
             </ul>
-
-      </React.Fragment>
+            </section>
+      </div>
     );
   }
 }
