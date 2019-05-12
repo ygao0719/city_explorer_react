@@ -8,7 +8,7 @@ class Map extends React.Component{
     return(
       <>
       <img alt='map' src = {`https://maps.googleapis.com/maps/api/staticmap?center=${this.props.city}&zoom=13&size=600x300&maptype=roadmap&key=${process.env.REACT_APP_GEOCODE_API_KEY}`}/>
-        <div>Here is the result of {this.props.city}</div>
+        <h2>Here is the result of {this.props.city}</h2>
       </>
     );
   }

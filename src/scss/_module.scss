@@ -15,3 +15,14 @@ button {
   background-color:#F19F4D;
   border: 1px solid #4484CE;
 }
+
+/* Style the yelp images */
+div section:nth-child(2) img {
+  height: 75px;
+  padding-bottom: 3px;
+}
+
+/* Style the movie images */
+div section:nth-child(4) img {
+  height: 150px;
+}
